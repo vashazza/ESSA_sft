@@ -1,0 +1,49 @@
+# Qwen3-4B-Thinking-2507 Fine-tuning Requirements
+# 필수 라이브러리 목록
+
+# Core ML libraries
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+
+# Transformers and related
+transformers>=4.51.0
+tokenizers>=0.20.0
+datasets>=2.14.0
+accelerate>=0.24.0
+
+# Parameter-efficient fine-tuning
+peft>=0.7.0
+bitsandbytes>=0.41.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+pyarrow>=12.0.0
+
+# Visualization and monitoring
+matplotlib>=3.7.0
+seaborn>=0.12.0
+wandb>=0.16.0
+tensorboard>=2.14.0
+
+# Configuration and utilities
+pyyaml>=6.0
+tqdm>=4.65.0
+scikit-learn>=1.3.0
+
+# Optional: Flash Attention for better performance
+flash-attn>=2.3.0
+
+# Development tools
+jupyter>=1.0.0
+ipykernel>=6.25.0
+
+# Text processing utilities (optional)
+nltk>=3.8.0
+spacy>=3.7.0
+
+# Additional utilities
+requests>=2.31.0
+packaging>=23.0
+psutil>=5.9.0

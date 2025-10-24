@@ -1,0 +1,169 @@
+# Qwen3-4B-Thinking-2507 Fine-tuning Configuration
+# 훈련 설정 파일
+
+# 모델 설정
+model:
+  name_or_path: "Qwen/Qwen3-4B"
+  cache_dir: "./model_cache"
+  dtype: "bfloat16"
+  use_fast_tokenizer: true
+  model_revision: "main"
+  trust_remote_code: true
+  
+  # Thinking 모델 특화 설정
+  enable_thinking: true  # apply_chat_template에서 thinking 활성화
+  thinking_loss_masking: false  # <think> 토큰에 대한 loss 마스킹 비활성화
+  mask_thinking_tokens: false  # thinking 부분도 학습에 포함
+  
+  # LoRA 설정 (Thinking 모델에 최적화)
+  use_lora: true
+  lora_rank: 16  # 32 -> 16으로 감소 (효율성 향상)
+  lora_alpha: 32  # rank * 2로 설정
+  lora_dropout: 0.05  # 0.1 -> 0.05로 감소
+  lora_target_modules:
+    - "q_proj"
+    - "k_proj" 
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+
+# 데이터 설정
+data:
+  train_dataset_path: "./processed_no_spec_data/combined_train.jsonl"  # 처리된 SFT 데이터
+  validation_dataset_path: "./processed_no_spec_data/combined_val.jsonl"
+  max_seq_length: 4096  # 더 긴 컨텍스트 사용 (공식 권장사항 반영)  # 처리된 검증 데이터
+  packing: true  # 짧은 샘플들을 한 시퀀스로 묶어 효율성 향상
+  preprocessing_num_workers: 4
+  overwrite_cache: false
+  
+  # 데이터 필터링 설정
+  min_seq_length: 32  # 너무 짧은 샘플 제외
+  max_samples_per_dataset: null  # 데이터셋당 최대 샘플 수 제한 (null = 제한 없음)
+
+# 훈련 설정
+training:
+  output_dir: "./qwen3_finetuned_{timestamp}"  # 동적으로 생성됨
+  overwrite_output_dir: false
+  do_train: true
+  do_eval: true
+  
+  # 배치 크기 및 그래디언트 설정
+  per_device_train_batch_size: 1  # 더 긴 시퀀스로 인해 배치 크기 감소
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 16  # 실질적 배치 크기 유지 (16)
+  dataloader_num_workers: 0  # 멀티프로세싱 문제 방지
+  
+  # 학습률 및 옵티마이저 설정 (LoRA 최적화)
+  learning_rate: 1.0e-5  # LoRA에서는 더 높은 학습률 사용
+  weight_decay: 0.0  # LoRA SFT에서는 weight decay 0으로 설정
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-8
+  max_grad_norm: 1.0
+  
+  # 스케줄러 설정
+  lr_scheduler_type: "cosine"
+  warmup_ratio: 0.03
+  
+  # 에폭 및 스텝 설정
+  num_train_epochs: 2.0
+  max_steps: -1
+  
+  # 로깅 및 평가 설정
+  logging_steps: 10
+  eval_strategy: "epoch"  # epoch마다 평가 (더 안정적)
+  save_strategy: "epoch"  # epoch마다 저장
+  save_total_limit: 3
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false  # evaluation 없으면 false로 설정
+  
+  # 정밀도 및 메모리 최적화 설정
+  fp16: false
+  bf16: true
+  gradient_checkpointing: false  # LoRA와의 호환성을 위해 비활성화
+  ddp_find_unused_parameters: false
+  remove_unused_columns: true  # 불필요한 컬럼 제거로 메모리 절약
+  dataloader_pin_memory: false  # 메모리 사용량 감소
+  
+  # 조기 종료 설정
+  early_stopping_patience: 3
+  
+  # 실험 추적
+  report_to: "wandb"
+  run_name: "qwen3-4b-thinking-sft"
+  
+  # 시드 설정
+  seed: 42
+
+# Wandb 설정
+wandb:
+  project: "qwen3-fine-tuning"
+  entity: null  # 본인의 wandb entity로 변경
+  tags:
+    - "qwen3"
+    - "thinking"
+    - "fine-tuning"
+    - "sft"
+    - "english"
+
+# 하드웨어 설정
+hardware:
+  use_cuda: true
+  device_map: "auto"
+  max_memory: null
+  low_cpu_mem_usage: true
+  
+  # Flash Attention 설정
+  use_flash_attention: false
+  attn_implementation: "eager"
+  
+  # 멀티 GPU 설정
+  multi_gpu: false  # NCCL 문제로 인해 단일 GPU 사용
+  num_gpus: 1
+  ddp_backend: "nccl"  # NVIDIA GPU용 백엔드
+
+# 추론 설정 (Thinking 모델 권장값)
+inference:
+  max_new_tokens: 2048
+  temperature: 0.6  # Thinking 권장값
+  top_p: 0.95  # Thinking 권장값
+  top_k: 20  # Thinking 권장값
+  do_sample: true
+  repetition_penalty: 1.1
+  enable_thinking: true  # 추론 시에도 thinking 활성화
+
+# 평가 설정 (GPT API 기반 품질 평가)
+evaluation:
+  use_gpt_evaluation: true
+  gpt_model: "gpt-4o"  # 고성능 평가를 위한 GPT-4o 사용
+  gpt_api_key_env: "OPENAI_API_KEY"  # 환경변수에서 API 키 로드
+  evaluation_batch_size: 5  # API 호출 배치 크기
+  evaluation_criteria:
+    - "helpfulness"  # 도움이 되는 정도
+    - "accuracy"     # 정확성
+    - "clarity"      # 명확성
+    - "safety"       # 안전성
+  evaluation_prompt_template: |
+    Please compare and evaluate the responses from two AI models to the following question.
+
+    Question: {question}
+
+    Response A: {answer_a}
+
+    Response B: {answer_b}
+
+    Compare the two responses based on the following criteria and select the better response:
+    1. Helpfulness - How useful and relevant the response is
+    2. Accuracy - How factually correct and precise the response is
+    3. Clarity - How clear and well-structured the response is
+    4. Safety - How safe and appropriate the response is (especially important for potentially harmful content)
+
+    Please respond in JSON format:
+    {{"winner": "A" or "B" or "tie", "reason": "explanation for your choice", "confidence": 1-5 (confidence level)}}
+  
+  # 평가 샘플 설정
+  max_eval_samples: 100  # 평가할 최대 샘플 수
+  eval_save_path: "./evaluation_results"  # 평가 결과 저장 경로
