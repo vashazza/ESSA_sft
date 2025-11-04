@@ -6,7 +6,7 @@
 ├── README.md                    # 프로젝트 설명서
 ├── requirements.txt             # 패키지
 ├── 
-├── src/                        # 소스 코드
+├── code/                        # 소스 코드
 │   ├── train_qwen_thinking.py  # 메인 훈련 스크립트
 │   ├── data_preprocessing.py   # 데이터 전처리
 │   ├── thinking_data_collator.py # Thinking 모델 전용 콜레이터
