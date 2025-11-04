@@ -1,0 +1,8 @@
+Supervised Fine-Tuning (SFT): Seed Dataset Distribution
+
+Utility Dataset: Nemotron-Post-Training-Dataset-V2
+-Composed exclusively of chat (conversational) format data that includes a reasoning trace.
+
+Safety Datasets: JailbreakV-28k, Aegis-AI-Content-Safety-Dataset-2.0, FalseReject
+
+Total: 8K (Utility 5K, Safety 3K)

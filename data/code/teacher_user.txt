@@ -1,0 +1,4 @@
+Generate a complete response containing both `## thought` and `## response` sections for the following query, based on your operating instructions and the provided SPEC.
+
+**User query:**
+{query}

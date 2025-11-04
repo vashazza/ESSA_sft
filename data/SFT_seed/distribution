@@ -1,0 +1,145 @@
+=== [1] 파일별 Domain-Task 분포 ===
+
+--- matching_Aegis_900 ---
+Domain: Finance & Banking         | Task: Agent_Actions                       | Count: 1
+Domain: Finance & Banking         | Task: Communication                       | Count: 2
+Domain: Finance & Banking         | Task: Decision_Support                    | Count: 7
+Domain: General                   | Task: Agent_Actions                       | Count: 7
+Domain: General                   | Task: Analysis_and_Reasoning              | Count: 109
+Domain: General                   | Task: Code_Generation                     | Count: 1
+Domain: General                   | Task: Communication                       | Count: 437
+Domain: General                   | Task: Decision_Support                    | Count: 112
+Domain: General                   | Task: Information_Processing              | Count: 112
+Domain: General                   | Task: Multimodal_Tasks                    | Count: 1
+Domain: General                   | Task: Text_Generation                     | Count: 27
+Domain: Healthcare & Medicine     | Task: Analysis_and_Reasoning              | Count: 2
+Domain: Healthcare & Medicine     | Task: Communication                       | Count: 19
+Domain: Healthcare & Medicine     | Task: Decision_Support                    | Count: 15
+Domain: Healthcare & Medicine     | Task: Information_Processing              | Count: 5
+Domain: Healthcare & Medicine     | Task: Text_Generation                     | Count: 1
+Domain: Legal & Regulatory        | Task: Analysis_and_Reasoning              | Count: 9
+Domain: Legal & Regulatory        | Task: Communication                       | Count: 8
+Domain: Legal & Regulatory        | Task: Decision_Support                    | Count: 14
+Domain: Legal & Regulatory        | Task: Information_Processing              | Count: 2
+Domain: Legal & Regulatory        | Task: Text_Generation                     | Count: 1
+Domain: Telecommunications        | Task: Agent_Actions                       | Count: 1
+Domain: Telecommunications        | Task: Analysis_and_Reasoning              | Count: 7
+
+>> 도메인별 총합 (matching_Aegis_900)
+Domain: Finance & Banking         | Total Count: 10
+Domain: General                   | Total Count: 806
+Domain: Healthcare & Medicine     | Total Count: 42
+Domain: Legal & Regulatory        | Total Count: 34
+Domain: Telecommunications        | Total Count: 8
+
+--- matching_FalseReject_1500 ---
+Domain: Finance & Banking         | Task: Analysis_and_Reasoning              | Count: 50
+Domain: Finance & Banking         | Task: Code_Generation                     | Count: 1
+Domain: Finance & Banking         | Task: Communication                       | Count: 3
+Domain: Finance & Banking         | Task: Decision_Support                    | Count: 37
+Domain: Finance & Banking         | Task: Information_Processing              | Count: 34
+Domain: General                   | Task: Agent_Actions                       | Count: 3
+Domain: General                   | Task: Analysis_and_Reasoning              | Count: 406
+Domain: General                   | Task: Code_Generation                     | Count: 6
+Domain: General                   | Task: Communication                       | Count: 135
+Domain: General                   | Task: Decision_Support                    | Count: 120
+Domain: General                   | Task: Image_Generation                    | Count: 2
+Domain: General                   | Task: Information_Processing              | Count: 338
+Domain: General                   | Task: Multimodal_Tasks                    | Count: 1
+Domain: General                   | Task: Text_Generation                     | Count: 16
+Domain: Healthcare & Medicine     | Task: Analysis_and_Reasoning              | Count: 29
+Domain: Healthcare & Medicine     | Task: Communication                       | Count: 40
+Domain: Healthcare & Medicine     | Task: Decision_Support                    | Count: 25
+Domain: Healthcare & Medicine     | Task: Image_Generation                    | Count: 1
+Domain: Healthcare & Medicine     | Task: Information_Processing              | Count: 68
+Domain: Legal & Regulatory        | Task: Analysis_and_Reasoning              | Count: 34
+Domain: Legal & Regulatory        | Task: Communication                       | Count: 14
+Domain: Legal & Regulatory        | Task: Decision_Support                    | Count: 39
+Domain: Legal & Regulatory        | Task: Information_Processing              | Count: 51
+Domain: Telecommunications        | Task: Analysis_and_Reasoning              | Count: 26
+Domain: Telecommunications        | Task: Code_Generation                     | Count: 2
+Domain: Telecommunications        | Task: Communication                       | Count: 2
+Domain: Telecommunications        | Task: Decision_Support                    | Count: 1
+Domain: Telecommunications        | Task: Information_Processing              | Count: 16
+
+>> 도메인별 총합 (matching_FalseReject_1500)
+Domain: Finance & Banking         | Total Count: 125
+Domain: General                   | Total Count: 1027
+Domain: Healthcare & Medicine     | Total Count: 163
+Domain: Legal & Regulatory        | Total Count: 138
+Domain: Telecommunications        | Total Count: 47
+
+--- matching_Jailbreak_600 ---
+Domain: Finance & Banking         | Task: Analysis_and_Reasoning              | Count: 7
+Domain: Finance & Banking         | Task: Communication                       | Count: 4
+Domain: Finance & Banking         | Task: Decision_Support                    | Count: 10
+Domain: Finance & Banking         | Task: Information_Processing              | Count: 5
+Domain: Finance & Banking         | Task: Text_Generation                     | Count: 2
+Domain: General                   | Task: Agent_Actions                       | Count: 3
+Domain: General                   | Task: Analysis_and_Reasoning              | Count: 33
+Domain: General                   | Task: Classification_and_Categorization   | Count: 5
+Domain: General                   | Task: Code_Generation                     | Count: 10
+Domain: General                   | Task: Communication                       | Count: 257
+Domain: General                   | Task: Decision_Support                    | Count: 35
+Domain: General                   | Task: Information_Processing              | Count: 15
+Domain: General                   | Task: Text_Generation                     | Count: 135
+Domain: Healthcare & Medicine     | Task: Communication                       | Count: 9
+Domain: Healthcare & Medicine     | Task: Decision_Support                    | Count: 30
+Domain: Legal & Regulatory        | Task: Analysis_and_Reasoning              | Count: 8
+Domain: Legal & Regulatory        | Task: Communication                       | Count: 18
+Domain: Legal & Regulatory        | Task: Decision_Support                    | Count: 4
+Domain: Legal & Regulatory        | Task: Information_Processing              | Count: 1
+Domain: Telecommunications        | Task: Analysis_and_Reasoning              | Count: 2
+Domain: Telecommunications        | Task: Code_Generation                     | Count: 4
+Domain: Telecommunications        | Task: Communication                       | Count: 3
+
+>> 도메인별 총합 (matching_Jailbreak_600)
+Domain: Finance & Banking         | Total Count: 28
+Domain: General                   | Total Count: 493
+Domain: Healthcare & Medicine     | Total Count: 39
+Domain: Legal & Regulatory        | Total Count: 31
+Domain: Telecommunications        | Total Count: 9
+
+
+=== [2] 전체 통합 Domain-Task 분포 ===
+Domain: Finance & Banking         | Task: Agent_Actions                       | Total Count: 1
+Domain: Finance & Banking         | Task: Analysis_and_Reasoning              | Total Count: 57
+Domain: Finance & Banking         | Task: Code_Generation                     | Total Count: 1
+Domain: Finance & Banking         | Task: Communication                       | Total Count: 9
+Domain: Finance & Banking         | Task: Decision_Support                    | Total Count: 54
+Domain: Finance & Banking         | Task: Information_Processing              | Total Count: 39
+Domain: Finance & Banking         | Task: Text_Generation                     | Total Count: 2
+Domain: General                   | Task: Agent_Actions                       | Total Count: 13
+Domain: General                   | Task: Analysis_and_Reasoning              | Total Count: 548
+Domain: General                   | Task: Classification_and_Categorization   | Total Count: 5
+Domain: General                   | Task: Code_Generation                     | Total Count: 17
+Domain: General                   | Task: Communication                       | Total Count: 829
+Domain: General                   | Task: Decision_Support                    | Total Count: 267
+Domain: General                   | Task: Image_Generation                    | Total Count: 2
+Domain: General                   | Task: Information_Processing              | Total Count: 465
+Domain: General                   | Task: Multimodal_Tasks                    | Total Count: 2
+Domain: General                   | Task: Text_Generation                     | Total Count: 178
+Domain: Healthcare & Medicine     | Task: Analysis_and_Reasoning              | Total Count: 31
+Domain: Healthcare & Medicine     | Task: Communication                       | Total Count: 68
+Domain: Healthcare & Medicine     | Task: Decision_Support                    | Total Count: 70
+Domain: Healthcare & Medicine     | Task: Image_Generation                    | Total Count: 1
+Domain: Healthcare & Medicine     | Task: Information_Processing              | Total Count: 73
+Domain: Healthcare & Medicine     | Task: Text_Generation                     | Total Count: 1
+Domain: Legal & Regulatory        | Task: Analysis_and_Reasoning              | Total Count: 51
+Domain: Legal & Regulatory        | Task: Communication                       | Total Count: 40
+Domain: Legal & Regulatory        | Task: Decision_Support                    | Total Count: 57
+Domain: Legal & Regulatory        | Task: Information_Processing              | Total Count: 54
+Domain: Legal & Regulatory        | Task: Text_Generation                     | Total Count: 1
+Domain: Telecommunications        | Task: Agent_Actions                       | Total Count: 1
+Domain: Telecommunications        | Task: Analysis_and_Reasoning              | Total Count: 35
+Domain: Telecommunications        | Task: Code_Generation                     | Total Count: 6
+Domain: Telecommunications        | Task: Communication                       | Total Count: 5
+Domain: Telecommunications        | Task: Decision_Support                    | Total Count: 1
+Domain: Telecommunications        | Task: Information_Processing              | Total Count: 16
+
+>> 전체 도메인별 총합
+Domain: Finance & Banking         | Total Count: 163
+Domain: General                   | Total Count: 2326
+Domain: Healthcare & Medicine     | Total Count: 244
+Domain: Legal & Regulatory        | Total Count: 203
+Domain: Telecommunications        | Total Count: 64
