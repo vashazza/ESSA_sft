@@ -16,7 +16,9 @@
 ├── config/                     # 설정 파일
 │   └── training_config.yaml
 ├── 
-└── data/                       # 훈련 데이터
+└── data/
+    ├── code/                   # 추론 데이터 생성 코드 + 프롬프트
+    ├── SFT_seed/               # 시드 데이터(aegis, false_reject, jailbreak)
     ├── general_only_data/      # 도메인 태스크 구분 없는 데이터
     ├── sft_data/               # 최종 데이터
     └── no_spec_data/           # spec 없는 데이터
