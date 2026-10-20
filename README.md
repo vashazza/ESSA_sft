@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 Code and data for **ESSA: Evolved Safety Specification Alignment** (AI4GOOD Workshop, ICML 2026).
-Dongcho Park, Yeowon Jung, Sung Jun Cheon.
+Dongcho Park*, Yeowon Jung*, Sung Jun Cheon (*equal contribution).
 
 ## Overview
 
